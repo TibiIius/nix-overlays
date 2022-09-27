@@ -24,13 +24,15 @@
           devShells.default = import ./shell.nix { inherit pkgsShell; };
           packages = {
             inherit (pkgs)
-              hydrapaper;
+              hydrapaper
+              libadwaita-without-adwaita;
           };
         }
       ) //
     {
       overlays.default = final: prev: {
         hydrapaper = final.callPackage ./pkgs/hydrapaper { };
+        libadwaita-without-adwaita = final.callPackage ./pkgs/libadwaita-without-adwaita { };
       };
     };
 }
