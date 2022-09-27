@@ -18,8 +18,10 @@
             overlays = [ self.overlays.default ];
             config.allowUnfree = true;
           };
+          pkgsShell = nixpkgs.legacyPackages.${system};
         in
         {
+          devShells.default = import ./shell.nix { inherit pkgsShell; };
           packages = {
             inherit (pkgs)
               hydrapaper;

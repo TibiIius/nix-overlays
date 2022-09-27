@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
-pkgs.mkShell {
-  nativeBuildInputs = with pkgs; [ nixpkgs-fmt rnix-lsp ];
+{ pkgsShell ? import <nixpkgs> { } }:
+pkgsShell.mkShell {
+  nativeBuildInputs = with pkgsShell; [ nixpkgs-fmt rnix-lsp ];
 }
