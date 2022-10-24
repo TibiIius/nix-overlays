@@ -1,15 +1,15 @@
-{ pkgs, fetchFromGitLab, fetchpatch }:
+{ pkgs, fetchFromGitLab, lib }:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "libadwaita-without-adwaita";
-  version = "1.1.0";
+  version = "1.2.0";
 
   src = fetchFromGitLab {
     domain = "gitlab.gnome.org";
     owner = "GNOME";
     repo = "libadwaita";
     rev = "${version}";
-    sha256 = "sha256-+bgCD2jy3M0gEAtbB+nOptQGEXXkvk1idoggJz4UMy0=";
+    sha256 = "sha256-3lH7Vi9M8k+GSrCpvruRpLrIpMoOakKbcJlaAc/FK+U=";
   };
 
   patches = [ ./theming.patch ];
