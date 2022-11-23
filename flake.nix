@@ -33,19 +33,6 @@
       overlays.default = final: prev: {
         hydrapaper = final.callPackage ./pkgs/hydrapaper { };
         libadwaita-without-adwaita = final.callPackage ./pkgs/libadwaita-without-adwaita { };
-        gnome = prev.gnome // {
-          gnome-keyring = (prev.gnome.gnome-keyring.override {
-            glib = prev.glib.overrideAttrs (a: rec {
-              patches = a.patches ++ [
-                (final.fetchpatch {
-                  url =
-                    "https://gitlab.gnome.org/GNOME/glib/-/commit/2a36bb4b7e46f9ac043561c61f9a790786a5440c.patch";
-                  sha256 = "b77Hxt6WiLxIGqgAj9ZubzPWrWmorcUOEe/dp01BcXA=";
-                })
-              ];
-            });
-          });
-        };
       };
     };
 }
